@@ -6,6 +6,17 @@
 #include "assert.h"
 
 int DaysInYear(int got);
+int DaysInYearRange(int oneGot, int twoGot);
+
+int DaysInYearRange(int oneGot, int twoGot){
+    int s = 0;
+    for (int i = oneGot; i < twoGot; ++i) {
+        if  (i % 4 == 0 && !(i % 100 == 0 && i % 400 != 0)) s+= 366;
+        else s+= 365;
+    }
+    return s;
+}
+
 
 int DaysInYear(int got){
     assert(got >= 0);
